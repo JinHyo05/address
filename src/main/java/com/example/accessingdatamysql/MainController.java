@@ -43,3 +43,14 @@ public class MainController {
 		return userRepository.findAll();
 	}
 }
+
+        @PutMapping(path = "/user")
+        public @ResponseBody String updateUser(@RequestParam Integer id, @RequestParam String name,
+                        @RequestParam String email) {
+                User n = new User();
+                n.setId(id);
+                n.setName(name);
+                n.setEmail(email);
+                userRepository.save(n);
+                return "Updated";
+        }
