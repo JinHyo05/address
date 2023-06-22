@@ -54,3 +54,11 @@ public class MainController {
                 userRepository.save(n);
                 return "Updated";
         }
+
+        @DeleteMapping(path="/user")
+        public @ResponseBody String deleteUser(@RequestParam Integer id) {
+                User n = new User();
+                n.setId(id);
+                userRepository.delete(n);
+                return "Deleted";
+        }
